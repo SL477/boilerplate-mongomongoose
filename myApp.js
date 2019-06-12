@@ -11,8 +11,20 @@ require('dotenv').config();
 // Add `mongodb` and `mongoose` to the project's `package.json`. Then require 
 // `mongoose`. Store your **mLab** database URI in the private `.env` file 
 // as `MONGO_URI`. Connect to the database using `mongoose.connect(<Your URI>)`
-const mongoose = require('mongodb').MongoClient;
-mongoose.connect(process.env.MONGO_URI);
+/*const mongodb = require('mongodb').MongoClient;
+//mongoose.connect(process.env.MONGO_URI);
+//const uri = "mongodb+srv://SL477:o8zwO6JKFFKapYNM@freecodecampmongodb-wcbbf.mongodb.net/test?retryWrites=true&w=majority";
+const mongoose = new mongodb(process.env.MONGO_URI, { useNewUrlParser: true });
+mongoose.connect(err => {
+  const collection = mongoose.db("test").collection("devices");
+  // perform actions on the collection object
+  mongoose.close();
+});*/
+
+const mongoose = require('mongoose');
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true });
+
+
 
 /** # SCHEMAS and MODELS #
 /*  ====================== */
