@@ -129,11 +129,16 @@ var createAndSavePerson = function(done) {
 // as the 1st argument, and saves them all in the db.
 // Create many people using `Model.create()`, using the function argument
 // 'arrayOfPeople'.
-
+//var Model = mongoose.model;
 var createManyPeople = function(arrayOfPeople, done) {
     
-    done(null/*, data*/);
-    
+    //done(null/*, data*/);
+    Person.create(arrayOfPeople, function (err, arr){
+      if (err){
+        return done(err);
+      }
+      return done(null, arr);
+    });
 };
 
 /** # C[R]UD part II - READ #
