@@ -173,8 +173,14 @@ Person.find({ name: personName }).exec(function (err, arr) {
 // argument `food` as search key
 
 var findOneByFood = function(food, done) {
-
-  done(null/*, data*/);
+  Person.findOne({ 'favoriteFoods': food }).exec(function (err, p1){
+    if (err) {
+      return done(err);
+    }
+    return done(null, p1);
+  });
+  
+  //done(null/*, data*/);
   
 };
 
