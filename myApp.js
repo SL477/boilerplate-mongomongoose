@@ -311,8 +311,14 @@ var removeById = function(personId, done) {
 
 var removeManyPeople = function(done) {
   var nameToRemove = "Mary";
+  Person.find({ 'name': nameToRemove }).remove().exec(function (err, data) {
+    if (err) {
+      return done(err);
+    }
+    return done(null, data);
+  });
 
-  done(null/*, data*/);
+  //done(null/*, data*/);
 };
 
 /** # C[R]UD part V -  More about Queries # 
